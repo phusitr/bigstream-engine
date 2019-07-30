@@ -1,0 +1,41 @@
+{
+  "job_id": "ino.adizom1.temperature",
+  "active": "true",
+  "trigger": {
+    "type": "cron",
+    "cmd": "*/10 * * * *"
+  },
+  "job_timeout": "600000",
+  "data_in": {
+    "type": "tanpibut",
+    "profile": {
+      "station_id": "NT-ADIZOM-01",
+      "latitude": "16.282820",
+      "longitude": "99.942230"
+    },
+    "param": {
+      "recover": "false",
+      "url": "http://<IP Address>/ws/get2.php",
+      "appkey": "0c5a295bd8c07a0818480773e9e7",
+      "station_id": "NT-ADIZOM-01",
+      "data_type": {
+        "type": "1",
+        "name": "Temperature",
+        "node_id": "4096"
+      },
+      "init_observed_date": "2019-07-18",
+      "init_observed_time": "00:00:00",
+      "limit": "20"
+    }
+  },
+  "data_transform": {
+    "type": "tanpibut"
+  },
+  "data_out": {
+    "type": "storage",
+    "param": {
+      "storage_name": "ino.adizom1.temperature"
+    }
+  },
+  "_vo": "ino"
+}
