@@ -1,0 +1,24 @@
+{
+  "job_id": "ino.adizom2.temperature",
+  "active": "true",
+  "trigger": {
+    "type": "cron",
+    "cmd": "*/10 * * * *"
+  },
+  "data_in": {
+    "type": "http-request",
+    "param": {
+      "url": "http://<ip-address>/ws/get.php?appkey=0c5a295bd8c07a0818480773e9e7&p=NT-ADIZOM-02,4096,1"
+    }
+  },
+  "data_transform": {
+    "type": "noop"
+  },
+  "data_out": {
+    "type": "storage",
+    "param": {
+      "storage_name": "ino.adizom2.temperature"
+    }
+  },
+  "_vo": "ino"
+}
