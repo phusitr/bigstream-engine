@@ -1,0 +1,30 @@
+{
+  "job_id": "ino.rainradar.bangkok",
+  "active": "true",
+  "trigger": {
+    "type": "cron",
+    "cmd": "*/30 * * * *"
+  },
+  "data_in": {
+    "type": "http-request",
+    "param": {
+      "url": "http://203.155.220.231/Radar/pics/zfiltered.jpg",
+      "encoding": "binary"
+    }
+  },
+  "data_transform": [
+    {
+      "type": "filter-duplicate",
+      "param": {
+        "name": "bkk"
+      }
+    }
+  ],
+  "data_out": {
+    "type": "storage",
+    "param": {
+      "storage_name": "ino.rainradar.picture"
+    }
+  },
+  "_vo": "ino"
+}
