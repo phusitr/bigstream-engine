@@ -15,8 +15,8 @@
     },
     "param": {
       "recover": "false",
-      "url": "http://203.185.131.92/ws/get.php",
-      "appkey": "0c5a295bd8c07a0818480773e9e7",
+      "url": "http://<ipaddress>/ws/get.php",
+      "appkey": "",
       "station_id": "NT-ADIZOM-13",
       "data_type": {
         "type": "6",
