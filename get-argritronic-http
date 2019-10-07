@@ -1,0 +1,29 @@
+import React, { Component } from 'react';
+import axios from 'axios';
+const API_URL = 'https://<BIGSTREAM-URL>/v1.2/object/ino.adizom01.temperature.2019/data?filetype=json&token=<TOKEN>';
+
+class App extends Component {
+  state = {
+    temp: []
+  }
+
+  componentDidMount() {
+    const url = `${API_URL}`;
+    axios.get(url).then(response => response.data)
+    .then((data) => {
+      this.setState({ temp: data.data })
+      console.log(this.state.temp)
+     })
+  }
+
+   render() {
+    return (
+       <div className="container">
+          {this.state.temp.map((t) => (
+               <h5 className="card-title">{t.value}</h5>
+        ))}
+       </div>
+    );
+  }
+}
+export default App;
