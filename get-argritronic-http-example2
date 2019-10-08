@@ -1,0 +1,30 @@
+import React, { Component } from 'react';
+import axios from 'axios';
+import { DataGrid, GridColumn } from 'rc-easyui';
+const API_URL = '<URL>?<TOKEN>';
+
+class App extends Component {
+  state = {
+    temp: []
+  }
+
+  componentDidMount() {
+    const url = `${API_URL}`;
+    axios.get(url).then(response => response.data)
+    .then((data) => {
+      this.setState({ temp: data.data })
+      console.log(this.state.temp)
+     })
+  }
+
+	render() {
+    return (
+      <div>
+        <DataGrid data={this.state.temp} style={{height:250}}>
+          <GridColumn field="value" title="Item ID"></GridColumn>
+        </DataGrid>
+      </div>
+    );
+  }
+}
+export default App;
